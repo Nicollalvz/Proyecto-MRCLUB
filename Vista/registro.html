@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head meta charset="UTF-8">
+    <title>MR CLUB</title>
+    <link rel="stylesheet" href="../Assets/CSS/estilos.css">
+</head>
+
+<body>
+    <div class="contenedor-formulario">
+        <h2>Registro Asociados</h2>
+        <form id="formRegistro" action="" method="POST">
+            <div class="grupo-input"></div>
+            <div class="grupo-input">
+                <label>Ingresar Documento</label>
+                <input id="documento" type="number" required placeholder="ejemplo: 1058354573">
+            </div>
+            <div class="grupo-input">
+                <label>Nombres: </label>
+                <input type="text" id="nombre" required placeholder="Ingrese nombres completos">
+            </div>
+            <div class="grupo-input">
+                <label>Apellidos: </label>
+                <input type="text" id="apellido" required placeholder="Ingrese apellidos completos">
+            </div>
+            <div class="grupo-input">
+                <label>Fecha de nacimiento: </label>
+                <input type="date" id="fechaNacimiento" required placeholder="ejemplo: 20/10/2008">
+            </div>
+            <div class="grupo-input">
+                <label>Direccion de residencia: </label>
+                <input type="text" id="direccion" required placeholder="ejemplo: cra 25 # 11-105">
+            </div>
+            <div class="grupo-input">
+                <label>Telefono: </label>
+                <input type="number" id="telefono" required placeholder="ejemplo: 3225817510">
+            </div>
+            <div class="grupo-input">
+                <label>Email: </label>
+                <input type="text" id="correo" required placeholder="ejemplo: nicoll@gmail.com">
+            </div>
+            <div class="grupo-input">
+                <label>Ciudad: </label>
+                <select id="ciudad" required>
+                    <option value="Sogamoso">Sogamoso </option>
+                    <option value="Duitama">Duitama </option>
+                    <option value="Tunja">Tunja </option>
+                </select>
+            </div>
+            <div class="grupo-input">
+                <label>Genero: </label>
+                <label>
+                    <input type="radio" id="femenino" name="genero" values="Femenino">
+                    <span>FEMENINO</span>
+                </label>
+                <label>
+                    <input type="radio" id="masculino" name="genero" values="Masculino">
+                    <span>MASCULINO</span>
+                </label>
+                <label>
+                    <input type="radio" id="otro" name="genero" values="Otro">
+                    <span>OTRO</span>
+                </label>
+            </div>
+            <div class="grupo-botones">
+                <button type="submit">Guardar</button>
+                <button type="reset">Limpiar Formulario</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
