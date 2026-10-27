@@ -1,132 +1,132 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    box-sizing: border-box;
-}
-body{
-    background-color: rgb(236, 208, 208);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-}
-.contenedor-login {
-    background: #ffffff;
-    padding: 30px 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 420px;
-}
-.subtitulo {
-    text-align: center;
-    color: #555;
-    margin-bottom: 20px;
-    font-size: 15px;
-}
-h2{
-    color:black;
-    margin-bottom: 8px;
-    font-size: 24px;
-    text-align: center;
-    border-bottom: 2px solid #0d0d0e;
-    padding-bottom: 8px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-.grupo-input{
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-}
-.grupo-input label {
-    font-size: 17px; 
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #1a1a1a;
-}
-.opciones {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0 20px;
-    font-size: 14px;
-}
-.recordar {
-    color: #444;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-}
-.olvido {
-    color: #6b4444;
-    text-decoration: none;
-}
-.olvido:hover {
-    text-decoration: underline;
-}
-.grupo-botones{
-    display: flex;
-    gap: 12px;
-    margin-top: 10px;
-}
-button{
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.25s ease; 
-}
-button:first-child {
-    background-color: #d4a8a8;
-    color: #1a1a1a;
-}
-button:first-child:hover {
-    background-color: #b98888;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-}
-button:last-child {
-    background-color: #e9dede;
-    color: #333;
-}
-button:last-child:hover {
-    background-color: #dcc8c8;
-    transform: translateY(-1px);
-}
-input, select {
-    padding: 11px 14px;
-    border: 1px solid #b8a8a8; 
-    border-radius: 8px;
-    font-size: 15px;
-    background-color: #fff;
-    font-family: inherit; 
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-input:focus, select:focus {
-    outline: none;
-    border-color: #926e6e;
-    box-shadow: 0 0 0 3px rgba(146, 110, 110, 0.15);
-}
-input:focus, select:focus {
-    border-color: darkmagenta;
-    box-shadow:rgba(0, 0, 0, 0.12);
-}
-.contenedor-formulario {
-    background:#fff;
-    padding: 30px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 500px;
-}
-button[type="submit"]{
-    background-color: #b37575;
-    color:#000000;
-}
+    *{
+        margin: 0;
+        padding: 0;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: rgb(236, 208, 208);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .contenedor-login {
+        background: #ffffff;
+        padding: 30px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 420px;
+    }
+    .subtitulo {
+        text-align: center;
+        color: #555;
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
+    h2{
+        color:black;
+        margin-bottom: 8px;
+        font-size: 24px;
+        text-align: center;
+        border-bottom: 2px solid #0d0d0e;
+        padding-bottom: 8px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+    }
+    .grupo-input{
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+    .grupo-input label {
+        font-size: 17px; 
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #1a1a1a;
+    }
+    .opciones {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0 20px;
+        font-size: 14px;
+    }
+    .recordar {
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+    .olvido {
+        color: #6b4444;
+        text-decoration: none;
+    }
+    .olvido:hover {
+        text-decoration: underline;
+    }
+    .grupo-botones{
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+    }
+    button{
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.25s ease; 
+    }
+    button:first-child {
+        background-color: #d4a8a8;
+        color: #1a1a1a;
+    }
+    button:first-child:hover {
+        background-color: #b98888;
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    }
+    button:last-child {
+        background-color: #e9dede;
+        color: #333;
+    }
+    button:last-child:hover {
+        background-color: #dcc8c8;
+        transform: translateY(-1px);
+    }
+    input, select {
+        padding: 11px 14px;
+        border: 1px solid #b8a8a8; 
+        border-radius: 8px;
+        font-size: 15px;
+        background-color: #fff;
+        font-family: inherit; 
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    input:focus, select:focus {
+        outline: none;
+        border-color: #926e6e;
+        box-shadow: 0 0 0 3px rgba(146, 110, 110, 0.15);
+    }
+    input:focus, select:focus {
+        border-color: darkmagenta;
+        box-shadow:rgba(0, 0, 0, 0.12);
+    }
+    .contenedor-formulario {
+        background:#fff;
+        padding: 30px 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 500px;
+    }
+    button[type="submit"]{
+        background-color: #b37575;
+        color:#000000;
+    }
