@@ -22,41 +22,41 @@
                     <div class="card-body p-4">
                         <h2 class="text-center mb-4 fw-bold titulo">Registro de Asociados</h2>
                         
-                        <form>
+                        <form id="formRegistroAsociado" action="../Modelos/guardarAsociado.php" method="POST"> 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Documento de Identidad</label>
-                                <input type="number" class="form-control" required placeholder="Ej: 1058354573">
+                                <input type="number" id="documento" name="documento" class="form-control" required placeholder="Ej: 1058354573">
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-semibold">Nombres</label>
-                                    <input type="text" class="form-control" required placeholder="Nombres completos">
+                                    <input type="text" id="nombres" name="nombres" class="form-control" required placeholder="Nombres completos">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-semibold">Apellidos</label>
-                                    <input type="text" class="form-control" required placeholder="Apellidos completos">
+                                    <input type="text" id="apellidos" name="apellidos" class="form-control" required placeholder="Apellidos completos">
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control" required>
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento"   class="form-control" required>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Dirección de Residencia</label>
-                                <input type="text" class="form-control" required placeholder="Ej: Cra 25 # 11-105">
+                                <input type="text" id="direccion" name="direccionResidencia" class="form-control" required placeholder="Ej: Cra 25 # 11-105">
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-semibold">Teléfono</label>
-                                    <input type="tel" class="form-control" required placeholder="Ej: 3225817510">
+                                    <input type="tel" id="telefono" name="telefono" class="form-control" required placeholder="Ej: 3225817510">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-semibold">Ciudad</label>
-                                    <select class="form-select" required>
+                                    <select id="ciudad" name="ciudad" class="form-select" required>
                                         <option value="">Seleccione una ciudad</option>
                                         <option>Duitama</option>
                                         <option>Sogamoso</option>
@@ -67,7 +67,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Correo Electrónico</label>
-                                <input type="email" class="form-control" required placeholder="correo@ejemplo.com">
+                                <input type="email" id="correo" name="email" class="form-control" required placeholder="correo@ejemplo.com">
                             </div>
 
                             <div class="mb-4">
@@ -87,11 +87,19 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Contraseña</label>
+                                <input type="password" id="contrasena" name="contrasena" class="form-control" required placeholder="Ingrese su contraseña">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Confirmar Contraseña</label>
+                                <input type="password" id="confirmarContrasena" name="confirmarContrasena" class="form-control" required placeholder="Confirme su contraseña">
+                            </div>
                             <div class="d-flex gap-2">
                                 <button type="submit" class="btn btn-primario flex-grow-1">Guardar</button>
                                 <button type="reset" class="btn btn-secundario flex-grow-1">Limpiar</button>
                             </div>
+                            <p id="mensajeRegistro" role="status" aria-live="polite"></p>
                         </form>
 
                         <div class="mt-4 text-center">
@@ -103,4 +111,5 @@
         </div>
     </div>
 </body>
+<script src="../Controladores/asociado.js"></script>
 </html>
