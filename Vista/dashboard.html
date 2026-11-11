@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <title>MRCLUB - Panel Principal</title>
     <style>
-        .icono-principal {
-            font-size: 45px;
-            color: #c26ba8;
-        }
-        .icono-principal-asociado {
-            font-size: 45px;
-            color: #b37575; 
-        }
-        .tarjeta-enlace {
-            text-decoration: none; 
-        }
-    </style>
+    :root {
+        --bs-body-font-family: "Times New Roman", Times, serif;
+    }
+
+    .icono-principal {
+        font-size: 45px;
+        color: #c26ba8;
+    }
+    .icono-principal-asociado {
+        font-size: 45px;
+        color: #b37575; 
+    }
+    .tarjeta-enlace {
+        text-decoration: none; 
+    }
+</style>
 </head>
 <body class="bg-light"> 
 
@@ -127,33 +131,7 @@
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const logueado = localStorage.getItem('logueado');
-    if (logueado !== 'true') {
-        window.location.href = 'login.html';
-        return;
-    }
-    const nombre = localStorage.getItem('nombre');
-    const rol = localStorage.getItem('rol');
-    document.getElementById('nombreUsuario').textContent = nombre;
-
-    if (rol === 'admin') {
-        document.getElementById('tarjetasAdministrador').classList.remove('d-none');
-        document.getElementById('tarjetasAsociado').classList.add('d-none');
-    } else {
-        document.getElementById('tarjetasAdministrador').classList.add('d-none');
-        document.getElementById('tarjetasAsociado').classList.remove('d-none');
-    }
-
-    const btnCerrar = document.getElementById('btnCerrarSesion');
-    if (btnCerrar) {
-        btnCerrar.addEventListener('click', () => {
-            localStorage.clear();
-            window.location.href = 'login.html';
-        });
-    }
-});
-</script>
 </body>
+<script src="../Controladores/dashboard.js"></script>
+
 </html>

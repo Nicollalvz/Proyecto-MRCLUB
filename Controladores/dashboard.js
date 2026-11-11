@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const logueado = localStorage.getItem('logueado');
+    const logueado = localStorage.getItem('logeado');
 
     if (logueado !== 'true') {
-        window.location.href = 'login.html';
+        window.location.href = '../Vista/login.html';
         return;
     }
 
@@ -19,12 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('tarjetasAsociado').classList.remove('d-none');
     }
 
-    // Funcionalidad para cerrar sesión
-    const btnCerrar = document.getElementById('btnCerrarSesion');
-    if (btnCerrar) {
-        btnCerrar.addEventListener('click', () => {
-            localStorage.clear();
-            window.location.href = 'login.html';
-        });
-    }
 });
+
+async function cerrarSesion() {
+    try{
+    const respuesta =await fetch("../Modelos/cerrarSesion.php", {method: "POST"});
+    if (!respuesta.ok) {
+        throw new Error("Error al cerrar sesión");
+    }
+        localStorage.clear();
+        window.location.href = "../Vista/login.html";
+
+    } catch (error) {
+        console.error("Error al cerrar sesión:", error);
+    }
+}

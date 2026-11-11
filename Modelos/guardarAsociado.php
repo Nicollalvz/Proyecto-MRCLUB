@@ -2,7 +2,7 @@
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/asociado.php';
 
-try{
+try {
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         http_response_code(405);
         throw new Exception("Método HTTP no permitido.");
@@ -29,12 +29,18 @@ try{
         throw new Exception("Datos inválidos.");
     }
 
-    $campos = ["documento", "nombres", "apellidos", "fechaNacimiento", "genero", "direccionResidencia", "ciudad", "telefono", "email", "contrasena"];
+    $campos = ["documento", "nombres", "apellidos", "fechaNacimiento", "genero", "direccionResidencia", "ciudad", "telefono", "email"];
     foreach ($campos as $campo) {
         if (!isset($datos[$campo])) {
             http_response_code(400);
             throw new Exception("Falta el campo: " . $campo);
         }
+    }
+
+    // Validar contraseña (acepta con eñe o sin eñe por seguridad)
+    if (!isset($datos['contraseña']) && !isset($datos['contrasena'])) {
+        http_response_code(400);
+        throw new Exception("Falta el campo: contraseña");
     }
 
     if (!filter_var($datos['email'], FILTER_VALIDATE_EMAIL)) {
