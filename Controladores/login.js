@@ -28,7 +28,7 @@ formLogin.addEventListener('submit', async function (e) {
         localStorage.setItem('rol', resultado.rol);
         localStorage.setItem('nombre', resultado.nombre);
 
-        window.location.href = '../Vista/dashboard.html';
+        window.location.href = `../Vista/dashboard.html?v=${Date.now()}`;
 
         }catch(error){
             console.error('Error al iniciar sesión:', error);

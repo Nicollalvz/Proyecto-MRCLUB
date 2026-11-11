@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    alert("Bienvenido al panel de control. Por favor, asegúrate de cerrar sesión al finalizar tu trabajo para proteger tu cuenta.");
+    // document.getElementById('btnCerrarSesion').addEventListener('click', cerrarSesion);
+
     const logueado = localStorage.getItem('logeado');
 
     if (logueado !== 'true') {
@@ -18,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('tarjetasAdministrador').classList.add('d-none');
         document.getElementById('tarjetasAsociado').classList.remove('d-none');
     }
-
 });
 
 async function cerrarSesion() {
