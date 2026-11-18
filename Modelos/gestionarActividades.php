@@ -12,6 +12,32 @@ function leerDatos() {
     return $datos;
 }
 
+function validarActividad($datos){
+
+    $nombre = $datos['nombreActividad'] ?? null;
+    $fecha = $datos['fechaEvento'] ?? null;
+    $municipio = $datos['municipio'] ?? null;
+
+    if(!is_string($nombre)|| trim($nombre) ==="" || strlen($nombre) > 100 || !is_string($municipio) || trim($municipio) === "" || strlen($municipio) > 50) {
+        http_response_code(400);
+        throw new Exception("Ingresa un nombre y municipio válidos");   
+    }
+    return[
+        "nombreActividad" => trim($nombre),
+        "fechaEvento" => $fecha,
+        "municipio" => trim($municipio)
+    ];
+}
+
+function validarId($id){
+    $idActividad=filter_var($id,FILTER_VALIDATE_INT,["options" =>["min_range" => 1]]);
+    if ($idActividad === false){
+        http_response_code(400);
+        throw new Exception ("El identificador de la actividad no es válido");
+    }
+    return $idActividad;
+}
+
 try{
     if (!isset($_SESSION["documento"],$_SESSION["rol"])) {
         http_response_code(401);
@@ -42,14 +68,43 @@ try{
             http_response_code(200);
             break;
         case "POST":
-            $datos=validarActividad(leerDatos());
+            $datos = validarActividad(leerDatos());
             $actividad->guardar($datos);
             $resultado = [
                 "success" => true,
                 "message" => "Actividad creada exitosamente"
             ];
             http_response_code(201);
-            break;    
+            break;
+        case "PUT":
+            $datos=leerDatos();
+            $datos["idActividad"]=validarId($datos["idActividad"] ?? null);
+            $datos = array_merge($datos,validarActividad($datos));
+            
+            if(!$actividad->editar($datos)){
+                http_response_code(404);
+                throw new Exception("No se escontró la actividad");
+            }
+            $resultado = [
+                "success" => true,
+                "mensaje" => "Actividad actualizada correctamente"
+            ];
+            http_response_code(200);
+            break;
+        case "DELETE":
+            $datos=leerDatos();
+            $idActividad = validarId($datos["idActividad"] ?? null);
+            
+            if(!$actividad->eliminar($idActividad)){
+                http_response_code(404);
+                throw new Exception("No se escontró la actividad");
+            }
+            $resultado = [
+                "success" => true,
+                "mensaje" => "Actividad eliminada correctamente"
+            ];
+            http_response_code(200);
+            break;
     }
     echo json_encode($resultado);
     

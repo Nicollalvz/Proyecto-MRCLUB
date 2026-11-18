@@ -7,20 +7,28 @@ class Actividad {
         $this->conexion = $conexionDB->conectar();
     }
     public function obtenerActividades(){
-        $sql = "SELECT * FROM actividades ORDER BY fecha ASC";
+        $sql = "SELECT * FROM actividades ORDER BY fechaEvento ASC";
         $consulta = $this->conexion->prepare($sql);
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function obtenerActividadPorId($id) {
-        $sql = "SELECT * FROM actividades WHERE id = :id";
+        $sql = "SELECT * FROM actividades WHERE idActividad = :id";
+        $consulta = $this->conexion->prepare($sql);
+        $consulta->execute([':id' => $id]);
+        return $consulta->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function guardar($datos) {
+        $sql = "INSERT INTO actividades (nombreActividad, fechaEvento, municipio, totalRecaudado)
+                VALUES (:nombreActividad, :fechaEvento, :municipio, :totalRecaudado)";
         $consulta = $this->conexion->prepare($sql);
         return $consulta->execute([
-            ':id' => $id,
             ':nombreActividad' => $datos['nombreActividad'],
             ':fechaEvento' => $datos['fechaEvento'],
-            ':municipio' => $datos['municipio']
+            ':municipio' => $datos['municipio'],
+            ':totalRecaudado' => $datos['totalRecaudado']
         ]);
     }
 
@@ -49,7 +57,7 @@ class Actividad {
         return true; // Retorna true si se actualizó alguna fila
     } 
     
-    $verficar = $this->conexion->prepare("SELECT 1 FROM actividades WHERE idActividad = :idActividad");
+    $verificar = $this->conexion->prepare("SELECT 1 FROM actividades WHERE idActividad = :idActividad");
     $verificar->execute([':idActividad' => $datos['idActividad']]);
 
     return (bool)$verificar->fetchColumn(); // Retorna true si la actividad existe, false si no existe

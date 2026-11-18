@@ -1,4 +1,4 @@
-const listaactividades = document.getElementById("listaactividades");
+const listaactividades = document.getElementById("listaActividades");
 let esAdministrador = false;
 actividades = [];
 
@@ -14,11 +14,11 @@ async function solicitarApi(metodo, datos) {
     }
     const respuesta = await fetch("../Modelos/gestionarActividades.php", opciones);
     const resultado = await respuesta.json();
-    if (respuesta.status === 4001) {
+    if (respuesta.status === 401) {
         window.location.href = "../Vista/login.html";
     }
     if (!respuesta.ok) {
-        throw new Error(resultado.error || "Error en la solicitud");
+        throw new Error(resultado.message || resultado.mensaje || "Error en la solicitud");
     }
     return resultado;
 }
@@ -26,7 +26,7 @@ async function solicitarApi(metodo, datos) {
 async function cargarActividades() {
     try{
         const resultado = await solicitarApi("GET");
-        esAdministrador = resultado.rol === "Admin";
+        esAdministrador = resultado.rol === "admin";
         // configurarAcciones();
         actividades = resultado.actividades;
         mostrarActividades();
