@@ -39,28 +39,26 @@ class Actividad {
         return $consulta->rowCount() > 0; // Retorna true si se elimino alguna fila
     }
 
-    public function editar($datos)
-    {
+    public function editar($datos) {
         $sql = "UPDATE actividades SET nombreActividad = :nombreActividad, fechaEvento = :fechaEvento, municipio = :municipio, totalRecaudado = :totalRecaudado 
         WHERE idActividad = :idActividad";
         $consulta = $this->conexion->prepare($sql);
-        return $consulta->execute([
+        
+        $ejecutado = $consulta->execute([
             ':idActividad' => $datos['idActividad'],
             ':nombreActividad' => $datos['nombreActividad'],
             ':fechaEvento' => $datos['fechaEvento'],
             ':municipio' => $datos['municipio'],
             ':totalRecaudado' => $datos['totalRecaudado']
         ]);
-    
 
-    if ($consulta->rowCount() > 0) {
-        return true; // Retorna true si se actualizó alguna fila
-    } 
-    
-    $verificar = $this->conexion->prepare("SELECT 1 FROM actividades WHERE idActividad = :idActividad");
-    $verificar->execute([':idActividad' => $datos['idActividad']]);
+        if ($consulta->rowCount() > 0) {
+            return true; // Retorna true si se actualizó alguna fila
+        } 
+        
+        $verificar = $this->conexion->prepare("SELECT 1 FROM actividades WHERE idActividad = :idActividad");
+        $verificar->execute([':idActividad' => $datos['idActividad']]);
 
-    return (bool)$verificar->fetchColumn(); // Retorna true si la actividad existe, false si no existe
+        return (bool)$verificar->fetchColumn(); // Retorna true si la actividad existe, false si no existe
     }
-
 }
